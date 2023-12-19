@@ -44,6 +44,14 @@ jobs:
         run: npm install
       - name: Run unit tests
         run: npm test
+      - name: Run SonarQube Scanner
+        run: |
+          # Installez le scanner SonarQube si nécessaire
+          # Exécutez le scanner SonarQube
+          sonar-scanner \
+            -Dsonar.projectKey=my-express-app \
+            -Dsonar.host.url=http://localhost:9000 \
+            -Dsonar.login=sqp_bfafd36b26492d2dcc8250fc6eacbc99abd7a3d8
 
   # Deploy the project to Docker Hub
 

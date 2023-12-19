@@ -55,9 +55,9 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         with:
           args: >
-            -Dsonar.projectKey=my-express-app
-            -Dsonar.host.url=http://localhost:9000
-            -Dsonar.login=sqp_bfafd36b26492d2dcc8250fc6eacbc99abd7a3d8
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
   # Deploy the project to Docker Hub
 

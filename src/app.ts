@@ -6,14 +6,12 @@ const port = 3000;
 
 app.use(express.json());
 
+app.get('/', (req, res) => res.send('Hello World!'));
+
 app.get('/user', UserController.getUser);
 
-// Exportez l'application Express pour l'utiliser dans d'autres fichiers, comme vos tests
-export default app;
+app.listen(port, () => {
+  console.log(`Serveur démarré sur http://localhost:${port}`);
+});
 
-// Séparez la logique de démarrage du serveur
-if (require.main === module) {
-    app.listen(port, () => {
-        console.log(`Serveur démarré sur http://localhost:${port}`);
-    });
-}
+export default app;

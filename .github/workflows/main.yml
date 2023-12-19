@@ -52,12 +52,12 @@ jobs:
           export PATH=$PATH:$(pwd)/sonar-scanner-4.6.2.2472-linux/bin
           
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
+        uses: kitabisa/sonarqube-action@master
         with:
-          args: >
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+            host: ${{secrets.SONAR_HOST_URL }}
+            login: ${{ secrets.SONAR_TOKEN  }}
+            projectBaseDir: "src/"
+            projectKey: "project-ibc-tp"
 
   # Deploy the project to Docker Hub
 

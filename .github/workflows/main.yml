@@ -51,11 +51,12 @@ jobs:
           unzip sonar-scanner-cli-4.6.2.2472-linux.zip
           export PATH=$PATH:$(pwd)/sonar-scanner-4.6.2.2472-linux/bin
           
-      - name: Run SonarQube Scanner
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=my-express-app \
-            -Dsonar.host.url=http://localhost:9000 \
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          args: >
+            -Dsonar.projectKey=my-express-app
+            -Dsonar.host.url=http://localhost:9000
             -Dsonar.login=sqp_bfafd36b26492d2dcc8250fc6eacbc99abd7a3d8
 
   # Deploy the project to Docker Hub

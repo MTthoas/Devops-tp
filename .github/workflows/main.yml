@@ -48,9 +48,9 @@ jobs:
 
   # Deploy the project to Docker Hub
 
-  push_registry:
+  sonar:
     needs: [build]
-    name: Push to Docker Hub
+    name: SonarQube Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

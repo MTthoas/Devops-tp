@@ -44,10 +44,15 @@ jobs:
         run: npm install
       - name: Run unit tests
         run: npm test
+      
+      - name: Install SonarQube Scanner
+        run: |
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+          unzip sonar-scanner-cli-4.6.2.2472-linux.zip
+          export PATH=$PATH:$(pwd)/sonar-scanner-4.6.2.2472-linux/bin
+          
       - name: Run SonarQube Scanner
         run: |
-          # Installez le scanner SonarQube si nécessaire
-          # Exécutez le scanner SonarQube
           sonar-scanner \
             -Dsonar.projectKey=my-express-app \
             -Dsonar.host.url=http://localhost:9000 \

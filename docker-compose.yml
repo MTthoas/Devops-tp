@@ -4,7 +4,7 @@ services:
   sonarqube:
     image: sonarqube
     ports:
-      - "9000:9000"
+      - "5000:5000"
     networks:
       - sonarnet
     environment:
@@ -15,17 +15,6 @@ services:
       - sonarqube_extensions:/opt/sonarqube/extensions
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
 
-  db:
-    image: postgres
-    networks:
-      - sonarnet
-    environment:
-      POSTGRES_USER: sonar
-      POSTGRES_PASSWORD: sonar
-    volumes:
-      - postgresql:/var/lib/postgresql
-      - postgresql_data:/var/lib/postgresql/data
-
 networks:
   sonarnet:
     driver: bridge
@@ -35,5 +24,3 @@ volumes:
   sonarqube_data: {}
   sonarqube_extensions: {}
   sonarqube_bundled-plugins: {}
-  postgresql: {}
-  postgresql_data: {}

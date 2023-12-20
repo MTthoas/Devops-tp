@@ -1,0 +1,4 @@
+docker run -d --name sonarqubeTest -p 5001:9000 sonarqube
+
+SONAR_TOKEN : sqp_e3f5769d6dee990ca12a11368c1f325a60687ef5
+SONAR_HOST_URL : http://91.68.22.198:5001
